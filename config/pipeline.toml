@@ -1,0 +1,70 @@
+default_paper = "experience-based-discrimination"
+
+# Configure either one model with [model] or multiple named model slots with [models.<slot>].
+# Each slot may use provider = "openai" or provider = "anthropic".
+# By default, OpenAI uses OPENAI_API_KEY and Anthropic uses ANTHROPIC_API_KEY.
+#
+# Example single-model setup:
+# [model]
+# slot_name = "default"
+# provider = "anthropic"
+# model_env = "ANTHROPIC_MODEL"
+# max_output_tokens = 180
+# timeout_seconds = 90
+# max_retries = 4
+# initial_backoff_seconds = 1.0
+# max_backoff_seconds = 12.0
+
+[model]
+slot_name = "default"
+provider = "anthropic"
+model_env = "ANTHROPIC_MODEL"
+max_output_tokens = 180
+timeout_seconds = 90
+max_retries = 4
+initial_backoff_seconds = 1.0
+max_backoff_seconds = 12.0
+
+[runtime]
+replicates = 20
+base_seed = 20260317
+bootstrap_iterations = 200
+audit_replicates = 2
+audit_sample_size = 24
+
+[versions]
+pipeline = "v1"
+prompt = "v1"
+renderer = "v1"
+parser = "v1"
+persona = "v1"
+resampling = "v1"
+
+[paths]
+raw_root = "data/raw"
+normalized_root = "data/normalized"
+output_root = "outputs"
+
+# [models.small]
+# provider = "openai"
+# model_env = "OPENAI_MODEL_SMALL"
+# model_id = ""
+# max_output_tokens = 180
+# timeout_seconds = 90
+# max_retries = 4
+
+# [models.mid]
+# provider = "openai"
+# model_env = "OPENAI_MODEL_MID"
+# model_id = ""
+# max_output_tokens = 180
+# timeout_seconds = 90
+# max_retries = 4
+
+# [models.frontier]
+# provider = "openai"
+# model_env = "OPENAI_MODEL_FRONTIER"
+# model_id = ""
+# max_output_tokens = 180
+# timeout_seconds = 90
+# max_retries = 4

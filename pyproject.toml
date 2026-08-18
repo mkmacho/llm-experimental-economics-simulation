@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "synthetic-replication"
+version = "0.1.0"
+description = "Synthetic replication pipeline for experimental economics paper/s."
+readme = "README.md"
+requires-python = ">=3.11,<3.15"
+dependencies = [
+  "click>=8.1,<9",
+  "numpy>=1.26,<3",
+  "pandas>=2,<3",
+  "pydantic>=2,<3",
+  "scipy>=1.11,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+]
+
+[project.scripts]
+synthetic-replication = "synthetic_replication.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/synthetic_replication"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

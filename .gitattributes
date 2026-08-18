@@ -1,0 +1,7 @@
+# Keep source exports free of third-party microdata, generated model responses,
+# and internal working records. This does not change what Git tracks.
+data/raw/** export-ignore
+data/normalized/** export-ignore
+outputs/** export-ignore
+PLANNING.md export-ignore
+planning/** export-ignore
