@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this simulation pipeline, please cite it and the underlying study."
+title: "LLM Experimental Economics Simulation"
+type: software
+authors:
+  - family-names: Camacho Horvitz
+    given-names: Miguel
+date-released: 2026-08-18
+license: MIT
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Lepage
+      given-names: Louis-Pierre
+  title: "Experience-based Discrimination"
+  journal: American Economic Journal: Applied Economics
+  doi: 10.1257/app.20220466

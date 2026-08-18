@@ -173,10 +173,10 @@ These audits are recorded in the simulation manifest and copied into each evalua
 With `uv` or a local Python environment:
 
 ```bash
-uv run synthetic-replication prepare
-uv run synthetic-replication simulate --baseline-only --replicates 2
-uv run synthetic-replication evaluate
-uv run synthetic-replication run --baseline-only --replicates 2
+uv run llm-experimental-economics-simulation prepare
+uv run llm-experimental-economics-simulation simulate --baseline-only --replicates 2
+uv run llm-experimental-economics-simulation evaluate
+uv run llm-experimental-economics-simulation run --baseline-only --replicates 2
 ```
 
 Without `uv`, the equivalent local command is:

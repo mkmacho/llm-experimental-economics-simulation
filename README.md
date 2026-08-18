@@ -1,4 +1,4 @@
-# Synthetic Replication Pipeline
+# LLM Experimental Economics Simulation
 
 This repository reconstructs the core experiment of [Experience-based Discrimination by Louis-Pierre Lepage](https://www.aeaweb.org/articles?id=10.1257/app.20220466) from public materials, simulates employer decisions with heuristic or LLM-based agents, and evaluates whether the simulated behavior matches both the observed micro-data and the paper's headline findings.
 
@@ -7,7 +7,9 @@ This repository reconstructs the core experiment of [Experience-based Discrimina
 > [data/README.md](data/README.md) and [PUBLIC_RELEASE.md](PUBLIC_RELEASE.md)
 > before acquiring or sharing external inputs.
 
-More generally, it is a near-one-shot LLM-built synthetic replication package for a suitable experimental economics paper.
+It is a transparent, code-first framework for testing whether heuristic and LLM
+agents can reproduce economically meaningful behavior without redistributing
+the underlying participant-level data.
 
 ## What This Repository Does
 
@@ -115,8 +117,8 @@ If you run `--baseline-only`, the agents are heuristic and external API calls dr
 A true low-cost smoke test is available for live LLM checks:
 
 ```bash
-uv run synthetic-replication simulate --smoke-test
-uv run synthetic-replication run --smoke-test
+uv run llm-experimental-economics-simulation simulate --smoke-test
+uv run llm-experimental-economics-simulation run --smoke-test
 ```
 
 `--smoke-test` forces:
@@ -277,7 +279,7 @@ export OPENAI_MODEL_FRONTIER="gpt-5"
 Full run with `uv`:
 
 ```bash
-uv run synthetic-replication run
+uv run llm-experimental-economics-simulation run
 ```
 
 Full run without `uv`:
@@ -289,21 +291,21 @@ PYTHONPATH=src python3 -m synthetic_replication.cli run
 Stage-by-stage:
 
 ```bash
-uv run synthetic-replication prepare
-uv run synthetic-replication simulate --replicates 2
-uv run synthetic-replication evaluate
+uv run llm-experimental-economics-simulation prepare
+uv run llm-experimental-economics-simulation simulate --replicates 2
+uv run llm-experimental-economics-simulation evaluate
 ```
 
 Heuristic-only smoke test:
 
 ```bash
-uv run synthetic-replication run --baseline-only --replicates 1
+uv run llm-experimental-economics-simulation run --baseline-only --replicates 1
 ```
 
 Low-cost live LLM smoke test:
 
 ```bash
-uv run synthetic-replication simulate --smoke-test
+uv run llm-experimental-economics-simulation simulate --smoke-test
 ```
 
 ## Outputs
@@ -330,13 +332,13 @@ README.md                      Repository documentation
 Run the test suite:
 
 ```bash
-PYTHONPATH=src pytest -q
+uv run pytest -q
 ```
 
 Useful local validation command:
 
 ```bash
-PYTHONPATH=src python3 -m synthetic_replication.cli run --baseline-only --replicates 1
+uv run llm-experimental-economics-simulation run --baseline-only --replicates 1
 ```
 
 ## Limitations
