@@ -14,7 +14,7 @@ def _resolve_root() -> Path:
 
 @click.group()
 def main() -> None:
-    """Synthetic replication pipeline."""
+    """LLM-agent simulation pipeline for experimental economics."""
 
 
 @main.command()
